@@ -1,11 +1,11 @@
 package com.example.flam_rnd_assignment;
 
 import androidx.appcompat.app.AppCompatActivity;
-
+import android.graphics.Bitmap;
+import android.graphics.BitmapFactory;
 import android.os.Bundle;
+import android.widget.ImageView;
 import android.widget.TextView;
-
-import com.example.flam_rnd_assignment.databinding.ActivityMainBinding;
 
 public class MainActivity extends AppCompatActivity {
 
@@ -14,23 +14,29 @@ public class MainActivity extends AppCompatActivity {
         System.loadLibrary("flam_rnd_assignment");
     }
 
-    private ActivityMainBinding binding;
+    private ImageView myImageView;
 
     @Override
     protected void onCreate(Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);
+        setContentView(R.layout.activity_main);
 
-        binding = ActivityMainBinding.inflate(getLayoutInflater());
-        setContentView(binding.getRoot());
+        myImageView = findViewById(R.id.my_image_view);
 
-        // Example of a call to a native method
-        TextView tv = binding.sampleText;
-        tv.setText(stringFromJNI());
+        // Load the test image from drawable
+        Bitmap inBitmap = BitmapFactory.decodeResource(getResources(), R.drawable.test_image);
+
+        // Create a mutable output bitmap
+        Bitmap outBitmap = inBitmap.copy(Bitmap.Config.ARGB_8888, true);
+
+        // Call the native C++ function
+        detectEdges(inBitmap, outBitmap);
+
+        // Display the processed image
+        myImageView.setImageBitmap(outBitmap);
     }
 
-    /**
-     * A native method that is implemented by the 'flam_rnd_assignment' native library,
-     * which is packaged with this application.
-     */
+    // Declare the native functions
     public native String stringFromJNI();
+    public native void detectEdges(Bitmap inBitmap, Bitmap outBitmap);
 }

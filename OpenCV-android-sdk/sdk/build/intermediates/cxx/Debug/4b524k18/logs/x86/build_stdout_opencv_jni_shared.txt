@@ -1,0 +1,2 @@
+ninja: Entering directory `C:\BTech\Placements\Flam\Project\Software-Intern-Rnd-Assignment\OpenCV-android-sdk\sdk\.cxx\Debug\4b524k18\x86'
+ninja: no work to do.
