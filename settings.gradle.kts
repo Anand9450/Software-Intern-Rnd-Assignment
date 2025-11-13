@@ -21,3 +21,5 @@ dependencyResolutionManagement {
 
 rootProject.name = "app"
 include(":app")
+include(":sdk")
+project(":sdk").projectDir = File(rootDir, "OpenCV-android-sdk/sdk/")

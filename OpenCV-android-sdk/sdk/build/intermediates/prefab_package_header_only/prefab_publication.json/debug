@@ -1,0 +1,17 @@
+{
+  "installationFolder": "C:\\BTech\\Placements\\Flam\\Project\\Software-Intern-Rnd-Assignment\\OpenCV-android-sdk\\sdk\\build\\intermediates\\prefab_package\\debug\\prefab",
+  "gradlePath": ":sdk",
+  "packageInfo": {
+    "packageName": "sdk",
+    "packageSchemaVersion": 2,
+    "packageDependencies": [],
+    "modules": [
+      {
+        "moduleName": "opencv_jni_shared",
+        "moduleHeaders": "C:\\BTech\\Placements\\Flam\\Project\\Software-Intern-Rnd-Assignment\\OpenCV-android-sdk\\sdk\\native\\jni\\include",
+        "moduleExportLibraries": [],
+        "abis": []
+      }
+    ]
+  }
+}
