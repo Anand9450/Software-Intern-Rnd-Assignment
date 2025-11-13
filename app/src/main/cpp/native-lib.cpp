@@ -1,18 +1,12 @@
 #include <jni.h>
 #include <string>
-
 #include <opencv2/core.hpp>
 #include <opencv2/imgproc.hpp>
 #include <opencv2/features2d.hpp>
-
-
 #include <android/bitmap.h>
 
 using namespace cv;
-
 extern "C" {
-
-// Helper function to convert Java Bitmap to cv::Mat
 void bitmapToMat(JNIEnv *env, jobject bitmap, Mat &dst) {
     AndroidBitmapInfo info;
     void *pixels = 0;
@@ -33,7 +27,6 @@ void bitmapToMat(JNIEnv *env, jobject bitmap, Mat &dst) {
     AndroidBitmap_unlockPixels(env, bitmap);
 }
 
-// Helper function to convert cv::Mat to Java Bitmap
 void matToBitmap(JNIEnv *env, Mat src, jobject bitmap) {
     AndroidBitmapInfo info;
     void *pixels = 0;
